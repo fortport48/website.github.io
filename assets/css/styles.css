@@ -1,0 +1,135 @@
+/* General Reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    height: 100%; /* Can keep height 100% for full screen */
+}
+
+/* Video Background */
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; /* Ensure video is behind content */
+    object-fit: cover;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Add a black semi-transparent background */
+    color: #fff;
+    padding: 10px;
+    z-index: 1000; /* Ensure header is above the video */
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Company Logo Style */
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Menu Icon Style */
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    padding-right: 50px;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style-type: none;
+    display: none; /* Hide by default */
+    flex-direction: column;
+    background-color: #444;
+    position: absolute;
+    top: 50px;
+    right: 25px;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    z-index: 1001; /* Place above video */
+}
+
+.nav-links li {
+    margin: 10px 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Show class for visible nav-links */
+.nav-links.show {
+    display: flex; /* Show navigation when .show is added */
+}
+
+/* Main Section Styles */
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    color: #000000;
+    z-index: 10; /* Ensure content is above the video */
+    border-radius: 10px;
+}
+
+/* Content Section */
+.content {
+    min-height: calc(100vh - 150px); /* Ensures content takes full height minus footer */
+    padding-bottom: 150px; /* Add padding to ensure content does not go under footer */
+}
+.content-section {
+    min-height: calc(100vh - 100px); /* Ensures content takes full height minus footer */
+    padding-bottom: 100px; /* Add padding to ensure content does not go under footer */
+    padding-top: 50px;
+}
+/* Footer Styles */
+.footer {
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Add a black semi-transparent background */
+    color: #fff;
+    z-index: 1000; /* Ensure footer is above the video */
+}
+
+/* Hide scrollbar but keep the page scrollable */
+body {
+    overflow-y: scroll; /* Enable vertical scroll */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari and Opera */
+}
+
+body {
+    -ms-over
