@@ -109,6 +109,7 @@ html, body {
     min-height: calc(100vh - 100px); /* Ensures content takes full height minus footer */
     padding-bottom: 100px; /* Add padding to ensure content does not go under footer */
     padding-top: 50px;
+    justify-content: center;
 }
 /* Footer Styles */
 .footer {
