@@ -5,11 +5,21 @@ html, body {
     font-family: Arial, sans-serif;
     box-sizing: border-box;
     height: 100%; /* Can keep height 100% for full screen */
+    overflow-x: hidden;
 }
 
 /* Video Background */
 #background-video {
     position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; /* Ensure video is behind content */
+    object-fit: cover;
+}
+#background-video {
+   
     right: 0;
     bottom: 0;
     min-width: 100%;
@@ -94,10 +104,12 @@ html, body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100vh;
+    height: 100vh; /* Full height of viewport */
     color: #000000;
     z-index: 10; /* Ensure content is above the video */
+    padding: 20px;
     border-radius: 10px;
+    flex-direction: column; /* Ensures text stays in a column layout */
 }
 
 /* Content Section */
@@ -110,11 +122,66 @@ html, body {
     padding-bottom: 100px; /* Add padding to ensure content does not go under footer */
     padding-top: 50px;
     text-align: justify;
+    padding-left: 1%;
+    padding-right: 1%;
 }
+
+.image-section {
+    text-align: center;
+    padding: 50px 0;
+    padding-bottom: 100px;
+}
+
+.image-section h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Image container for layout */
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Make sure images wrap on smaller screens */
+}
+
+.image-container img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.image-container img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease;
+}
+
+.image-container img.in-view {
+    opacity: 1; /* Fully visible when in view */
+   
+}
+
+.image-container img.out-of-view {
+    opacity: 0; /* Fade out when leaving the viewport */
+}
+
+
+/* Responsive Image Styles */
+@media (max-width: 768px) {
+    .image-container img {
+        width: 90%; /* Make images fill more of the space on smaller screens */
+    }
+}
+
 /* Footer Styles */
 .footer {
     text-align: center;
-    padding: 20px;
+    padding: 0px;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -126,6 +193,9 @@ html, body {
 /* Hide scrollbar but keep the page scrollable */
 body {
     overflow-y: scroll; /* Enable vertical scroll */
+    background-image: linear-gradient(to bottom right, white, rgb(254, 245, 228), white);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 body::-webkit-scrollbar {
@@ -133,4 +203,6 @@ body::-webkit-scrollbar {
 }
 
 body {
-    -ms-over
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+    scrollbar-width: none; /* Firefox */
+}
